@@ -46,7 +46,7 @@
       <div id="collapseSell" class="collapse" aria-labelledby="headingSell" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
 
-          <a class="collapse-item" href="{{ route('orders.index') }}">Add New</a>
+          <a class="collapse-item" href="{{ route('orders.create') }}">Sell Now</a>A</a>
           <a class="collapse-item" href="{{ route('orders.index') }}">View All</a>
 
         </div>
@@ -68,7 +68,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
 
           <a class="collapse-item" href="{{ route('purchases.create') }}">Add New</a>
-          <a class="collapse-item" href="{{ route('purchases-receipt.index') }}">View All</a>
+          <a class="collapse-item" href="{{ route('purchases.index') }}">View All</a>
 
         </div>
       </div>
@@ -112,8 +112,8 @@
       <div id="collapseStaff" class="collapse" aria-labelledby="headingStaff" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
 
-          <a class="collapse-item" href="buttons.html">Add New</a>
-          <a class="collapse-item" href="buttons.html">View All</a>
+          <a class="collapse-item" href="#">Add New</a>
+          <a class="collapse-item" href="#">View All</a>
 
         </div>
       </div>
@@ -125,9 +125,9 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item  ">
-      <a class="nav-link p-3 " href="index">
+      <a class="nav-link p-3 " href="{{ route('barcode') }}">
         <i class="fas fa-fw fa-tachometer-alt"></i>
-        <span>Reports</span></a>
+        <span>Barcode Print</span></a>
     </li>
 
   </div>

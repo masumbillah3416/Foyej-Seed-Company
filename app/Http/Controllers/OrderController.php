@@ -17,14 +17,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        
 
+        $orders =  Order::orderBy('created_at', 'desc')->get();
 
-        $categories = Category::all();
-        $productTypes = Product_type::all();
-
-
-        return view('product.order', compact('categories', 'productTypes', 'products'));
+        return  view('product.orderList', compact("orders"));
+       
     }
 
     /**
@@ -34,7 +32,11 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('new_invoice');
+        $products = Product::all();
+        $categories = Category::all();
+        $productTypes = Product_type::all();
+
+        return view('product.order', compact('categories', 'productTypes', 'products'));
     }
 
     /**
@@ -50,12 +52,12 @@ class OrderController extends Controller
         $order->customer_id = $request->customer_id;
         $order->pay = $request->pay;
         $order->due = $request->due;
+        $order->pre_due = $request->pre_due;
         $order->discount = $request->discount;
         $order->total = $request->total;
-
-
+        
         $order->save();
-
+    
         return $order->id;
     }
 

@@ -105,7 +105,7 @@
               <div class="col-xl-4 col-md-6 mb-4  text-center  ">
                 <div class="card border-none  h-100 p-4">
                   <div class="card-img-top ">
-                  <a href="{{ route('orders.index') }}"> <i class="fas fa-hand-pointer fa-2x  text-info "></i></a>
+                  <a href="{{ route('orders.create') }}"> <i class="fas fa-hand-pointer fa-2x  text-info "></i></a>
                   </div>
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -122,12 +122,32 @@
               <div class="col-xl-4 col-md-6 mb-4  text-center  ">
                 <div class="card border-none  h-100 p-4">
                   <div class="card-img-top ">
-                  <a href="#"> <i class="fas fa-dollar-sign fa-2x  text-info "></i></a>
+                  <a href="   {{ route('customer_cash_receive_create') }} "> <i class="fas fa-dollar-sign fa-2x  text-info "></i></a>
                   </div>
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> <a href="#">Cash</a> </div>
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> <a href="  {{ route('customer_cash_receive_create') }} ">Cash</a> </div>
+                      </div>
+                      
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+                            <!-- Growth Card Example -->
+                            <div class="col-xl-4 col-md-6 mb-4  text-center  ">
+                <div class="card border-none  h-100 p-4">
+                  <div class="card-img-top ">
+                  <a  href="{{ route('complete-product') }}"> <i class="fas fa-shopping-bag fa-2x  text-info "></i></a>
+                  </div>
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> <a  href="{{ route('complete-product') }}">Products</a> </div>
                       </div>
                        
 
@@ -190,12 +210,12 @@
               <div class="col-xl-4 col-md-6 mb-4  text-center  ">
                 <div class="card border-none  h-100 p-4">
                   <div class="card-img-top ">
-                  <a href="#"> <i class="fas fa-users fa-2x  text-info "></i></a>
+                  <a href="{{ route('supplier_payment') }}"> <i class="fas fa-users fa-2x  text-info "></i></a>
                   </div>
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> <a href="#">Staff</a> </div>
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> <a href="{{ route('supplier_payment') }}">Payment</a> </div>
                       </div>
                        
 
@@ -203,23 +223,7 @@
                   </div>
                 </div>
               </div>
-              <!-- Growth Card Example -->
-              <div class="col-xl-4 col-md-6 mb-4  text-center  ">
-                <div class="card border-none  h-100 p-4">
-                  <div class="card-img-top ">
-                  <a  href="{{ route('products.index') }}"> <i class="fas fa-shopping-bag fa-2x  text-info "></i></a>
-                  </div>
-                  <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                      <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> <a  href="{{ route('products.index') }}">Products</a> </div>
-                      </div>
-                       
 
-                    </div>
-                  </div>
-                </div>
-              </div>
               <!-- Growth Card Example -->
               <div class="col-xl-4 col-md-6 mb-4  text-center  ">
                 <div class="card border-none  h-100 p-4">

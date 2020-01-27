@@ -29,31 +29,38 @@ Route::post('product_typeupdate', 'ProductTypeController@Product_typeupdate')->n
 Route::resource('products', 'ProductController');
 Route::post('productsupdate', 'ProductController@Productsupdate')->name("productsupdate");
 Route::get('productsdrop', 'ProductController@productsdrop')->name("productsdrop");
+Route::get('complete-product', 'ProductController@complete')->name("complete-product");
 
 Route::resource('purchases', 'PurchaseController');
 Route::resource('purchases_details', 'PurchaseDetailsController');
-
-Route::resource('purchases-receipt', 'PurchaseReceiptController');
-Route::get('purchases-receipt-show/{id}', 'PurchaseReceiptController@showPurchase')->name('purchases-receipt-show');
-
+Route::get('purchases-receipt-show/{id}', 'ReceiptController@purchaseShow')->name('purchases-receipt-show');
 
 Route::resource('orders', 'OrderController');
 Route::resource('orders_details', 'OrderDetailController');
-Route::resource('orders', 'OrderController');
+Route::get('order-receipt-show/{id}', 'ReceiptController@orderShow')->name('order-receipt-show');
 
 Route::resource('invoices', 'InvoiceController');
 
 
 Route::resource('suppliers', 'SupplierController');
-Route::post('suppliersupdate', 'SupplierController@suppliersupdate')->name("suppliersupdate");
+Route::post('suppliers_update', 'SupplierController@suppliersupdate')->name("suppliersupdate");
+Route::get('supplier_payment', 'SupplierController@suppplierPayment')->name("supplier_payment");
+Route::post('supplier_payment', 'SupplierController@suppplierPaymentStore')->name("supplier_paymnent_store");
 
 // end Product area 
 
 // customer area start
 Route::resource('customers', 'CustomerController');
-Route::post('customersupdate', 'CustomerController@customersupdate')->name("customersupdate");
+Route::post('customers_update', 'CustomerController@customersupdate')->name("customersupdate");
+Route::get('customer_cash_receive_create', 'CustomerController@customersCashReceiveCreate')->name("customer_cash_receive_create");
+Route::post('customer_cash_receive', 'CustomerController@customersCashReceiveStore')->name("customer_cash_receive_store");
 
 // customer area end
+// barcode print  area start
+Route::get('barcode', 'BarCodePrinterController@index')->name("barcode");
+Route::post('barcode_print', 'BarCodePrinterController@print')->name("barcode_print");
+
+// barcode print  area end
 
 // testing  routes
 
@@ -65,15 +72,4 @@ Route::view('/bar','bar');
 
 
 
-use App\Role;
-
-Route::get('admin/contacts', 'ContactController@getIndex');
-Route::get('table/data',  function () {
-       $contact= Role::all();
-        return ($contact);
-    });
-
-Route::post('admin/contacts/store', 'ContactController@postStore');
-Route::post('admin/contacts/update', 'ContactController@postUpdate');
-Route::post('admin/contacts/delete', 'ContactController@postDelete');
 
