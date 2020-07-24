@@ -8,6 +8,8 @@ use App\customerCashReceive;
 use App\Order;
 use App\Supplier;
 
+use Illuminate\Support\Facades\Auth;
+
 class CustomerController extends Controller
 {
     /**
@@ -72,7 +74,11 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        $customerCashReceives= customerCashReceive::where('customer_id', $customer->id)->get(); 
+        $orders= order::where('customer_id', $customer->id)->get(); 
+
+
+            return view('customer.show',compact('customer',"customerCashReceives",'orders'));
     }
     public function ApiShow(Request $request)
     {
@@ -119,21 +125,19 @@ class CustomerController extends Controller
     }
     public function customersupdate(Request $request)
     {
-        //  return $request;
-        $request->validate([
-            'phone' => 'required|unique:customers|max:11|min:11',
-        ]);
+     
 
 
+    //    return $request;
 
         $customer = Customer::find($request->id);
-        //  return $customer;
+        //   return $customer;
         $customer->phone = $request->phone;
         $customer->name = $request->name;
         $customer->address = $request->address;
 
         $customer->save();
-        //return $customer;
+        // return $customer;
 
         return redirect(route('customers.index'))->with('successMsg', 'Customer Successfully updated');
     }
@@ -176,7 +180,7 @@ class CustomerController extends Controller
 
         // return $request;
         $customerCashReceive = new customerCashReceive;
-        $customerCashReceive->user_id = 1;
+        $customerCashReceive->user_id = Auth::user()->id;
         $customerCashReceive->customer_id = $request->customer_id;
         $customerCashReceive->amount = $request->amount;
         $customerCashReceive->comment = $request->comment;  
@@ -191,7 +195,13 @@ class CustomerController extends Controller
         return view( "receipt.customerCashReceive",compact('customerCashReceive', 'customerCashReceive') );
     }
 
+    
+    public function customersCashReceiveIndex(){
 
+        $customerCashReceives = customerCashReceive::all();
+        
+        return view('customer.customerCashReceiveAll',compact('customerCashReceives'));
+    }
 
     
 }

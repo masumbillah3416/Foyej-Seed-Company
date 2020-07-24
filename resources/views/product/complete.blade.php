@@ -13,40 +13,40 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand">Product list</a>
+        <div class="card-header py-3 bg-abasas-dark">
+            <nav class="navbar navbar-dark">
+                <a class="navbar-brand">প্রোডাক্ট লিস্ট</a>
                
             </nav>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered" id="dataTable1" width="100%" cellspacing="0">
-                    <thead class="thead-dark">
+                    <thead class="bg-abasas-dark">
 
 
                         <tr>
-                            <th>Product Id</th>
-                            <th>Name</th>
-                            <th>Weight</th>
-                            <th>Sell</th>
-                            <th>Stock</th>
-                            <th>Cost</th>
-                            <th>Limit</th>
-                            <th>Expire</th>
+                            <th>প্রোডাক্ট আইডি</th>
+                            <th>নাম</th>
+                            <th>ওজন</th>
+                            <th>বিক্রয়</th>
+                            <th>স্টক</th>
+                            <th>ক্রয়মূল্য</th>
+                            <th>লিমিট</th>
+                            <th>মেয়াদ</th>
                         </tr>
                     </thead>
-                    <tfoot class="thead-dark">
+                    <tfoot class="bg-abasas-dark">
                         <tr>
 
-                            <th>Product Id</th>
-                            <th>Name</th>
-                            <th>Weight</th>
-                            <th>Sell</th>
-                            <th>Stock</th>
-                            <th>Cost</th>
-                            <th>Limit</th>
-                            <th>Expire</th>
+                        <th>প্রোডাক্ট আইডি</th>
+                            <th>নাম</th>
+                            <th>ওজন</th>
+                            <th>বিক্রয়</th>
+                            <th>স্টক</th>
+                            <th>ক্রয়মূল্য</th>
+                            <th>লিমিট</th>
+                            <th>মেয়াদ</th>
 
                         </tr>
 

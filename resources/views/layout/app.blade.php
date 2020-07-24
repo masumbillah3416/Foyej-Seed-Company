@@ -20,12 +20,20 @@
     <!-- Custom styles for this page -->
     <link href="{{asset('file/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> -->
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
     <!-- Custom style-->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <style type="text/css">
+    .bg-abasas-dark{
+   
+        background-color:#2a3f5c;
+        color: #fff;
+
+    }
+</style>
 
 </head>
 
@@ -84,6 +92,7 @@
     <script src="{{asset('js/custom/order.js')}}"></script>
     <script src="{{asset('js/custom/cashReceive.js')}}"></script>
     <script src="{{asset('js/custom/cashPayment.js')}}"></script>
+    <script src="{{asset('js/custom/staff.js')}}"></script>
 
     
 

@@ -9,25 +9,30 @@
 <div class="container-fluid">
     <div class="card mb-4 shadow">
 
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Add New Category</h6>
+    
+        <div class="card-header py-3 bg-abasas-dark">
+            <nav class="navbar navbar-dark ">
+                <a class="navbar-brand"> নতুন ক্যাটাগরি</a>
+               
+            </nav>
         </div>
+
         <div class="card-body">
             <form method="POST" action="{{ route('categories.store') }}">
                 @csrf
                 <div class="form-row align-items-center">
                     <div class="col-auto">
-                        <span class="text-dark pl-2"> Category Name</span>
+                        <span class="text-dark pl-2"> ক্যাটাগরি নাম</span>
                         <input type="text" name="name" class="form-control mb-2" id="inlineFormInput" required >
                     </div>
                     <div class="col-auto">
 
-                        <span class="text-dark pl-2"> Description</span>
+                        <span class="text-dark pl-2">বিবরন</span>
                         <input type="text" name="description" size="55" class="form-control mb-2" id="inlineFormInput" required >
                     </div>
 
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        <button type="submit" class="btn btn-primary mt-3">সাবমিট</button>
                     </div>
 
                 </div>
@@ -40,30 +45,34 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Category list</h6>
+        
+        <div class="card-header py-3 bg-abasas-dark">
+            <nav class="navbar navbar-dark ">
+                <a class="navbar-brand"> ক্যাটাগরি লিস্ট</a>
+               
+            </nav>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered" id="dataTable1" width="100%" cellspacing="0">
-                    <thead class="thead-dark">
+                    <thead class="bg-abasas-dark">
 
 
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Products</th>
-                            <th>Action</th>
+                            <th>নাম</th>
+                            <th>বিবরন</th>
+                            <th>পণ্য</th>
+                            <th>একশন</th>
                         </tr>
                     </thead>
-                    <tfoot class="thead-dark">
+                    <tfoot class="bg-abasas-dark">
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Products</th>
-                            <th>Action</th>
+                            <th>নাম</th>
+                            <th>বিবরন</th>
+                            <th>পণ্য</th>
+                            <th>একশন</th>
                         </tr>
 
                     </tfoot>
@@ -125,7 +134,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-dark" id="edit-modal-label ">Edit Data</h5>
+                <h5 class="modal-title text-dark" id="edit-modal-label ">তথ্য সংশোধন</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -137,25 +146,25 @@
 
                     <!-- id -->
                     <div class="form-group">
-                        <label class="col-form-label" for="modal-input-id">Id </label>
+                        <label class="col-form-label" for="modal-input-id">আইডি </label>
                         <input type="text" name="id" class="form-control" id="modal-input-id" required readonly>
                     </div>
                     <!-- /id -->
                     <!-- name -->
                     <div class="form-group">
-                        <label class="col-form-label" for="modal-input-name">Category Name</label>
+                        <label class="col-form-label" for="modal-input-name">ক্যাটাগরি নাম</label>
                         <input type="text" name="name" class="form-control" id="modal-input-name" required autofocus>
                     </div>
                     <!-- /name -->
                     <!-- description -->
                     <div class="form-group">
-                        <label class="col-form-label" for="modal-input-description">Description</label>
+                        <label class="col-form-label" for="modal-input-description">বিবরন</label>
                         <input type="text" name="description" class="form-control" id="modal-input-description" required>
                     </div>
 
                     <div class="form-group">
 
-                        <input type="submit" value="submit" class="form-control btn btn-success">
+                        <input type="submit" value=" সাবমিট" class="form-control btn btn-success">
                     </div>
                     <!-- /description -->
 

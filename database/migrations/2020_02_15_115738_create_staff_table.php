@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSellTypesTable extends Migration
+class CreateStaffTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateSellTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sell_types', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) {
             $table->bigIncrements('id');
-        
-            $table->string('name');
+            $table->string('phone')->unique();
+            $table->string('name')->nullable();
+            $table->string('address')->nullable();
+            $table->bigInteger('due')->nullable();
+            $table->bigInteger('salary')->nullable();
+            $table->string('post')->nullable();
             $table->timestamps();
-            ///fixed packet or normal with weight
         });
     }
 
@@ -29,6 +32,6 @@ class CreateSellTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sell_types');
+        Schema::dropIfExists('staff');
     }
 }

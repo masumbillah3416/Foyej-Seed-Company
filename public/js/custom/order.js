@@ -2,13 +2,14 @@ $(document).ready(function () {
 
     console.log("page is ready");
 
-    var user_id=1;
+    var user_id=100;
     var customer_id;
     var customer_previous_due=0;
     var due ;
     var orderTableData = {};
     var productDiscount = 0;
     var totalPaurchase = 0;
+    var totalCost = 0;
     var orderId= 0;
     // customer Area Start 
 
@@ -50,7 +51,7 @@ $(document).ready(function () {
                         $("#orderPageCustomerName").text(data.name);
                         $("#orderPageCustomerPhone").text(data.phone);
                         $("#orderPageCustomerCompany").text(data.company);
-                        $("#orderPageCustomerDue").html("Due : " + data.due);
+                        $("#orderPageCustomerDue").html("বকেয়া  : " + data.due);
 
                         $('#orderPageAddCustomerForm').hide();
                         $("#orderPageCustomerView").show();
@@ -158,6 +159,7 @@ $(document).ready(function () {
 
                 $.get(viewLink, function (data) {
                     //   console.log(data);
+                    // $("#orderProductInputCost").val(data.cost_per_unit);
                     $("#orderProductInputName").val(data.name);
                     $("#orderProductInputPrice").val(data.price_per_unit);
                 });
@@ -173,6 +175,7 @@ $(document).ready(function () {
                 $(".orderProductCreateProduct").show();
                 $("#orderProductError").show();
 
+                // $("#orderProductInputCost").val('');
                 $("#orderProductInputName").val('');
                 $("#orderProductInputPrice").val(0);
                 $("#orderProductInputQuantity").val(0);
@@ -193,22 +196,6 @@ $(document).ready(function () {
         });
 
 
-
-
-        // var request = $.get(link);
-        // request.success(function(data) {
-
-
-        //     console.log(data);
-
-        //     $("#orderProductInputName").val(data.name);
-
-        // });
-        // request.error(function(jqXHR, textStatus, errorThrown){
-        //     console.log(jqXHR);
-        //     console.log(textStatus);
-        //     console.log(errorThrown);
-        // });
 
 
 
@@ -264,17 +251,18 @@ $(document).ready(function () {
         totalPaurchase = 0;
         var totalPaurchaseRow = 0;
 
-        totalPaurchase = parseInt(totalPaurchase);
-        totalPaurchaseRow = parseInt(totalPaurchaseRow);
+        totalPaurchase = parseFloat(totalPaurchase);
+        totalPaurchaseRow = parseFloat(totalPaurchaseRow);
 
         productDiscount = totalPaurchaseRow - totalPaurchase;
 
         var html = '';
         var i = 0;
+        totalCost=0 ;
         jQuery.each(orderTableData, function (row) {
 
-            totalPaurchase += parseInt(orderTableData[row].total.trim());
-            totalPaurchaseRow += parseInt(orderTableData[row].quantity.trim()) * parseInt(orderTableData[row].price.trim())
+            totalPaurchase += parseFloat(orderTableData[row].total.trim());
+            totalPaurchaseRow += parseFloat(orderTableData[row].quantity.trim()) * parseFloat(orderTableData[row].price.trim())
             html += '<tr>'
             html += '<td>' + ++i + '</td>'
             html += '<td>' + orderTableData[row].id + '</td>'
@@ -283,6 +271,7 @@ $(document).ready(function () {
             html += '<td>' + orderTableData[row].quantity + '</td>'
             html += '<td>' + orderTableData[row].total + '</td>'
             html += '<td>'
+
             html += '<button type="button" productId=' + orderTableData[row].id + ' id="orderProductTableEdit" class="btn btn-success"> <i class="fa fa-edit" aria-hidden="false"> </i></button>'
             html += ' <button type="button" id="orderProductTableDelete" productId=' + orderTableData[row].id + '  class="btn btn-danger" > <i class="fa fa-trash" aria-hidden="false"> </i></button>'
 
@@ -291,10 +280,9 @@ $(document).ready(function () {
             $("#totalPrice").text(totalPaurchase);
             $("#totalDue").text(totalPaurchase);
 
-
-
             $("#totalPriceDiscount").text(totalPaurchaseRow - totalPaurchase);
             productDiscount = totalPaurchaseRow - totalPaurchase;
+      
         });
     }
 
@@ -330,6 +318,7 @@ $(document).ready(function () {
     $('#orderProductInputSubmit').click(function () {
         var orderProductInputId = $("#orderProductInputId").val();
         var orderProductInputName = $("#orderProductInputName").val();
+        // var orderProductInputCost = $("#orderProductInputCost").val();
         var orderProductInputPrice = $("#orderProductInputPrice").val();
         var orderProductInputQuantity = $("#orderProductInputQuantity").val();
         var orderProductInputTotal = $("#orderProductInputTotal").val();
@@ -337,6 +326,7 @@ $(document).ready(function () {
         orderTableData[orderProductInputId] = {
             id: orderProductInputId,
             name: orderProductInputName,
+            // cost: orderProductInputCost,
             price: orderProductInputPrice,
             quantity: orderProductInputQuantity,
             total: orderProductInputTotal,
@@ -354,6 +344,7 @@ $(document).ready(function () {
 
         $("#orderProductInputId").val(orderTableData[prooductId].id);
         $("#orderProductInputName").val(orderTableData[prooductId].name);
+        // $("#orderProductInputCost").val(orderTableData[cost].name);
         $("#orderProductInputPrice").val(orderTableData[prooductId].price);
         $("#orderProductInputQuantity").val(orderTableData[prooductId].quantity);
         $("#orderProductInputTotal").val(orderTableData[prooductId].total);

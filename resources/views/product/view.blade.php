@@ -13,44 +13,44 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <nav class="navbar navbar-light bg-light">
-                <a class="navbar-brand">Product list</a>
-                <button class="btn btn-success " id="create-button">new Product</button>
+        <div class="card-header py-3 bg-abasas-dark">
+            <nav class="navbar navbar-dark ">
+                <a class="navbar-brand">পণ্যের লিস্ট</a>
+                <button class="btn btn-success " id="create-button">নতুন পণ্য</button>
             </nav>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered" id="dataTable1" width="100%" cellspacing="0">
-                    <thead class="thead-dark">
+                    <thead class="bg-abasas-dark">
 
 
                         <tr>
-                            <th>Product Id</th>
-                            <th>Name</th>
-                            <th>Weight</th>
-                            <th>Sell</th>
-                            <th>Category</th>
-                            <th>Stock</th>
-                            <th>Cost</th>
-                            <th>Limit</th>
-                            <th>Expire</th>
-                            <th>Action</th>
+                            <th>পণ্যের আইডি</th>
+                            <th>নাম</th>
+                            <th>ওজন</th>
+                            <th>বিক্রয়</th>
+                            <th> ক্যাটাগরি</th>
+                            <th>মজুদ</th>
+                            <th> ক্রয়মূল্য</th>
+                            <th> লিমিট</th>
+                            <th>মেয়াদ</th>
+                            <th> একশন</th>
                         </tr>
                     </thead>
-                    <tfoot class="thead-dark">
-                        <tr>
+                    <tfoot class="bg-abasas-dark">
+                        <tr> 
 
-                            <th>Product Id</th>
-                            <th>Name</th>
-                            <th>Weight</th>
-                            <th>Sell</th>
-                            <th>Category</th>
-                            <th>Stock</th>
-                            <th>Cost</th>
-                            <th>Limit</th>
-                            <th>Expire</th>
-                            <th>Action</th>
+                            <th> পণ্যের আইডি</th>
+                            <th> নাম</th>
+                            <th> ওজন</th>
+                            <th> বিক্রয়</th>
+                            <th> ক্যাটাগরি</th>
+                            <th> মজুদ</th>
+                            <th>ক্রয়মূল্য</th>
+                            <th> লিমিট</th>
+                            <th> মেয়াদ</th>
+                            <th> একশন</th>
                         </tr>
 
                     </tfoot>
@@ -62,7 +62,7 @@
                             <td class="iteration">{{$id}}</td>
                             <td id="viewName">{{$product->name}}</td>
                             <td id="viewCategoryId">{{$product->weight}}</td>
-                            <td id="viewSell">{{$product->sell}}</td>
+                            <td id="viewSell">{{$product->price}}</td>
                             <td id="viewProductTypeId">{{$product->category->name}}</td>
                             <td id="viewProductTypeId">{{$product->stock}}</td>
                             <td id="viewCost">{{$product->cost}}</td>
@@ -124,7 +124,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-dark" id="edit-modal-label ">Add Product</h5>
+                <h5 class="modal-title text-dark" id="edit-modal-label "> নতুন পণ্য</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -135,14 +135,14 @@
 
 
                     <div class="form-group">
-                        <label for="productName">Product Name</label>
-                        <input type="text" name="name" class="form-control" id="productName" placeholder="Enter product name" required>
+                        <label for="productName">পণ্যের নাম</label>
+                        <input type="text" name="name" class="form-control" id="productName" placeholder="পণ্যের নাম লিখুন" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="catagory_id">Procuct Category</label>
+                        <label for="catagory_id"> পণ্যের ক্যাটাগরি</label>
                         <select class="form-control form-control" name="category_id" id="catagory_id" required>
-                            <option value="1" selected="selected">Select Category </option>
+                            <option value="1" selected="selected"> ক্যাটাগরি নির্বাচন</option>
                             @foreach ($categories as $category)
                             <option value="{{$category->id}}"> {{$category->name}}</option>
                             @endforeach
@@ -150,10 +150,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="product_type_id">Procuct Type</label>
+                        <label for="product_type_id"> বিক্রয়ের ধরন</label>
                         <select class="form-control form-control" name="product_type_id" id="product_type_id" required>
 
-                            <option value="1" selected="selected">Select Product Type</option>
+                            <option value="1" selected="selected"> বিক্রয়ের ধরন নির্বাচন</option>
                             @foreach ($productTypes as $productType)
                             <option value="{{$productType->id}}"> {{$productType->name}}</option>
                             @endforeach
@@ -161,28 +161,33 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="price">Weight</label>
-                        <input type="number" name="weight" class="form-control" id="weight" placeholder="">
+                        <label for="price"> ওজন</label>
+                        <input type="number" name="weight" class="form-control" id="weight" placeholder="" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="cost">Cost</label>
-                        <input type="number" name="cost" class="form-control" id="cost" placeholder="">
+                        <label for="cost"> ক্রয়মূল্য</label>
+                        <input type="number" name="cost" class="form-control" id="cost" placeholder="" required>
                     </div>
 
 
                     <div class="form-group">
-                        <label for="price">Sell Price</label>
-                        <input type="number" name="price" class="form-control" id="price" placeholder="">
+                        <label for="price"> বিক্রয় মূল্য</label>
+                        <input type="number" name="price" class="form-control" id="price" placeholder="" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="lowLimit">Low Limit</label>
-                        <input type="number" name="low_limit" class="form-control" id="lowLimit" placeholder="Enter Lowest Limit">
+                        <label for="lowLimit"> লিমিট </label>
+                        <input type="number" name="low_limit" class="form-control" id="lowLimit" placeholder="" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lowLimit"> মেয়াদ </label>
+                        <input type="date" name="expire_date" class="form-control" id="lowLimit" placeholder="" >
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">সাবমিট</button>
 
 
 
@@ -207,7 +212,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-dark" id="edit-product-modal-label ">Edit Product</h5>
+                <h5 class="modal-title text-dark" id="edit-product-modal-label ">পণ্য সংশোধন</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -219,7 +224,7 @@
 
 
                     <div class="form-group">
-                        <label for="editProductId2">Id</label>
+                        <label for="editProductId2">আইডি</label>
                         <input type="text" class="form-control" id="editProductId2" disabled>
                     </div>
 
@@ -229,20 +234,20 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="editProductName">Product Name</label>
-                        <input type="text" name="name" class="form-control" id="editProductName" placeholder="Enter product name">
+                        <label for="editProductName"> পণ্যের নাম</label>
+                        <input type="text" name="name" class="form-control" id="editProductName" placeholder="Enter product name"required>
                     </div>
 
                     <div class="form-group">
-                        <label for="editProductCatagoryId">Procuct Category</label>
-                        <select class="form-control form-control" name="category_id" id="editProductCatagoryId">
+                        <label for="editProductCatagoryId">পণ্যের ক্যাটাগরি</label>
+                        <select class="form-control form-control" name="category_id" id="editProductCatagoryId"required>
 
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="editProductTypeId">Procuct Type</label>
-                        <select class="form-control form-control" name="product_type_id" id="editProductTypeId">
+                        <label for="editProductTypeId">পণ্যের ধরন</label>
+                        <select class="form-control form-control" name="product_type_id" id="editProductTypeId"required>
 
 
                         </select>
@@ -250,27 +255,27 @@
 
 
                     <div class="form-group">
-                        <label for="editProductWeight">Weight</label>
-                        <input type="number" name="weight" class="form-control" id="editProductWeight" placeholder="120">
+                        <label for="editProductWeight">ওজন</label>
+                        <input type="number" name="weight" class="form-control" id="editProductWeight" placeholder="120"required>
                     </div>
 
                     <div class="form-group">
-                        <label for="editProductCost">Cost</label>
-                        <input type="number" name="cost" class="form-control" id="editProductCost" placeholder="">
+                        <label for="editProductCost"> ক্রয়মূল্য</label>
+                        <input type="number" name="cost" class="form-control" id="editProductCost" placeholder=""required>
                     </div>
 
                     <div class="form-group">
-                        <label for="editProductPrice">Sell Price</label>
-                        <input type="number" name="price" class="form-control" id="editProductPrice" placeholder="120">
+                        <label for="editProductPrice">বিক্রয় মূল্য</label>
+                        <input type="number" name="price" class="form-control" id="editProductPrice" placeholder="120"required>
                     </div>
 
                     <div class="form-group">
-                        <label for="editLowLimit">Low Limit</label>
-                        <input type="number" name="low_limit" class="form-control" id="editLowLimit" placeholder="Enter Lowest Limit">
+                        <label for="editLowLimit"> লিমিট </label>
+                        <input type="number" name="low_limit" class="form-control" id="editLowLimit" placeholder=""required>
                     </div>
 
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary"> সাবমিট</button>
 
 
 

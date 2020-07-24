@@ -14,7 +14,12 @@
             <div class="card mb-4 shadow">
 
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Cash Payment</h6>
+                 
+                    <nav class="navbar navbar-light">
+         <h6 class="m-0 font-weight-bold text-primary">Cash Payment</h6>
+                <button class="btn btn-success " id="create-button"> <a href="{{ route('supplier_paymnent_store_all') }} " class="text-light">Cash Receive</a> </button>
+        
+            </nav>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('supplier_paymnent_store') }}">
@@ -64,8 +69,8 @@
 
 
             <!-- Supplier Area Start -->
-            <div class="col-xl-12 col-md-12 mb-4  text-center  bg-dark p-2 ">
-                <div class="card border-none   bg-dark  h-100 p-2">
+            <div class="col-xl-12 col-md-12 mb-4  text-center  bg-abasas-dark p-2 ">
+                <div class="card border-none   bg-abasas-dark  h-100 p-2">
                     <h3 class="text-white">Supplier</h3>
                     <div class="card-body">
                         <div class="row no-gutters ">

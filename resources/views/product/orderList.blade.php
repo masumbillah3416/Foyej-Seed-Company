@@ -6,32 +6,35 @@
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">order List</h6>
+    
+        <div class="card-header py-3  bg-abasas-dark ">
+        <nav class="navbar navbar-dark">
+                <a class="navbar-brand text-light"> বিক্রয় লিস্ট </a>
+             </nav>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered" id="dataTable1" width="100%" cellspacing="0">
-                    <thead class="thead-dark">
+                    <thead class="bg-abasas-dark">
 
 
                         <tr>
                             <th>#</th>
-                            <th>order Id</th>
-                            <th>customer</th>
-                            <th>Total</th>
-                            <th>Date</th>
-                            <th>Action</th>
+                            <th> বিক্রয় নং </th>
+                            <th>ক্রেতা</th>
+                            <th>মোট</th>
+                            <th>তথ্য</th>
+                            <th> একশন</th>
                         </tr>
                     </thead>
-                    <tfoot class="thead-dark">
+                    <tfoot class="bg-abasas-dark">
                         <tr>
-                            <th>#</th>
-                            <th>order Id</th>
-                            <th>customer</th>
-                            <th>Total</th>
-                            <th>Date</th>
-                            <th>Action</th>
+                        <th>#</th>
+                            <th> বিক্রয় নং  </th>
+                            <th>ক্রেতা</th>
+                            <th>মোট</th>
+                            <th>তথ্য</th>
+                            <th> একশন </th>
                         </tr>
 
                     </tfoot>

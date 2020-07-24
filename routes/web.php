@@ -17,6 +17,8 @@
 
 Route::get('/', 'IndexController@index')->name('index');
 
+Route::get('/profile', 'UserController@index')->name('profile');
+
 Auth::routes();
 
 // Product Area 
@@ -38,6 +40,7 @@ Route::get('purchases-receipt-show/{id}', 'ReceiptController@purchaseShow')->nam
 Route::resource('orders', 'OrderController');
 Route::resource('orders_details', 'OrderDetailController');
 Route::get('order-receipt-show/{id}', 'ReceiptController@orderShow')->name('order-receipt-show');
+Route::resource('order_return_product', 'OrderReturnProductController');
 
 Route::resource('invoices', 'InvoiceController');
 
@@ -46,6 +49,7 @@ Route::resource('suppliers', 'SupplierController');
 Route::post('suppliers_update', 'SupplierController@suppliersupdate')->name("suppliersupdate");
 Route::get('supplier_payment', 'SupplierController@suppplierPayment')->name("supplier_payment");
 Route::post('supplier_payment', 'SupplierController@suppplierPaymentStore')->name("supplier_paymnent_store");
+Route::get('supplier_payment_all', 'SupplierController@supplierPaymentIndex')->name("supplier_paymnent_store_all");
 
 // end Product area 
 
@@ -54,13 +58,60 @@ Route::resource('customers', 'CustomerController');
 Route::post('customers_update', 'CustomerController@customersupdate')->name("customersupdate");
 Route::get('customer_cash_receive_create', 'CustomerController@customersCashReceiveCreate')->name("customer_cash_receive_create");
 Route::post('customer_cash_receive', 'CustomerController@customersCashReceiveStore')->name("customer_cash_receive_store");
+Route::get('customer_cash_receive_all', 'CustomerController@customersCashReceiveIndex')->name("customer_cash_receive_all");
 
 // customer area end
+
 // barcode print  area start
 Route::get('barcode', 'BarCodePrinterController@index')->name("barcode");
 Route::post('barcode_print', 'BarCodePrinterController@print')->name("barcode_print");
 
 // barcode print  area end
+
+
+
+/// Staff area 
+
+
+Route::resource('staffs', 'StaffController');
+Route::post('staffsupdate', 'StaffController@staffsUpdate')->name("staffsupdate");
+
+
+/// Salary area 
+
+
+Route::resource('salaries', 'SalaryController');
+
+/// Expenses area 
+
+Route::resource('expenses', 'ExpenseController');
+Route::resource('daily-expenses', 'DailyController');
+Route::resource('monthly-expenses', 'MonthlyController');
+Route::resource('yearly-expenses', 'YearlyController');
+
+
+/// Accounting Area 
+
+Route::resource('accounting', 'AccountingController');
+Route::get('daily-accounting', 'AccountingController@daily')->name('daily-accounting');
+Route::get('monthly-accounting', 'AccountingController@monthly')->name('monthly-accounting');
+Route::get('yearly-accounting', 'AccountingController@yearly')->name('yearly-accounting');
+
+/////goal
+
+
+Route::resource('goals', 'GoalController');
+Route::post('goalsupdate', 'GoalController@goalUpdate')->name("goalsupdate");
+
+
+
+/////stats
+
+
+Route::resource('stats', 'StatsController');
+Route::get('sale-stats', 'StatsController@sale')->name('sale-stats');
+Route::get('purchase-stats', 'StatsController@purchase')->name('purchase-stats');
+Route::get('expense-stats', 'StatsController@expanse')->name('expense-stats');
 
 // testing  routes
 
@@ -73,3 +124,23 @@ Route::view('/bar','bar');
 
 
 
+
+// api route 
+
+
+
+
+Route::get('apicategories', 'CategoryController@apiIndex')->name('categories_api');
+Route::get('apiproduct_types', 'ProductTypeController@apiIndex')->name('product_type_api');
+Route::get('apiproduct', 'ProductController@ApiShow')->name('product_view_api');
+Route::get('apiproduct_check', 'ProductController@apiProducutCheck')->name("product_check_api");
+
+Route::get('apisuppliers', 'SupplierController@apiIndex')->name('suppliers_api');
+Route::get('apisupplier', 'SupplierController@ApiShow')->name('supplier_view_api');
+Route::get('apisupplierscheck', 'SupplierController@supplierscheck')->name("supplierscheck_api");
+Route::get('apisuppliersdue', 'SupplierController@suppliersDue')->name("suppliersdue_api");
+
+Route::get('apicustomers', 'CustomerController@apiIndex')->name('customers_api');
+Route::get('apicustomer', 'CustomerController@ApiShow')->name('customer_view_api');
+Route::get('apicustomer_check', 'CustomerController@apiCustomerCheck')->name("customer_check_api");
+Route::get('apicustomersdue_api', 'CustomerController@customersDue')->name("customersdue_api");

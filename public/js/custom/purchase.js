@@ -51,7 +51,7 @@ $(document).ready(function () {
                         $("#purchasePageSupplierName").text(data.name);
                         $("#purchasePageSupplierPhone").text(data.phone);
                         $("#purchasePageSupplieCompany").text(data.company);
-                        $("#purchasePageSupplierDue").html("Due : " + data.due);
+                        $("#purchasePageSupplierDue").html("বকেয়া : " + data.due);
 
                         $('#purchasePageAddSupplierForm').hide();
                         $("#purchasePageSupplierView").show();
@@ -497,10 +497,10 @@ $(document).ready(function () {
                             url: act,
                             data: OPfrm.serialize(),
                             success: function (successData) {
-                               /// console.log(' orderProductAddForm successful. and id is ' + successData + purchaseTableData[row].total);
+                                console.log(' orderProductAddForm successful. and id is ' + successData + purchaseTableData[row].total);
                             },
                             error: function (data) {
-                                alert("Failed order ..... Try Again !!!!!!!!!!!")
+                                alert("Failed create  order deatails ..... Try Again !!!!!!!!!!!")
                                 console.log('An error occurred.');
                                 console.log(data);
                             },
